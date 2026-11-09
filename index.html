@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTools | KING_YOSEF_</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-terminal"></i>
+                <h2>Dev<span>Tools</span></h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active" data-target="url-tool"><i class="fa-solid fa-link"></i> URL Encoder/Decoder</li>
+                    <li data-target="html-tool"><i class="fa-solid fa-code"></i> HTML Entity Converter</li>
+                    <li data-target="time-tool"><i class="fa-solid fa-clock"></i> Timestamp Converter</li>
+                    <li data-target="regex-tool"><i class="fa-solid fa-magnifying-glass"></i> Regex Tester</li>
+                    <li data-target="image-tool"><i class="fa-solid fa-image"></i> Placeholder Image</li>
+                </ul>
+            </nav>
+            <div class="developer-info">
+                <p>Developed by</p>
+                <h3>KING_YOSEF_</h3>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <h1>Web / Developer Helpers</h1>
+                <p>Advanced utilities for modern developers.</p>
+            </header>
+
+            <div class="tools-wrapper">
+                <!-- Tool 1: URL Encoder/Decoder -->
+                <section id="url-tool" class="tool-section active">
+                    <h2><i class="fa-solid fa-link"></i> URL Encoder / Decoder</h2>
+                    <div class="tool-grid">
+                        <div class="input-group">
+                            <label>Input</label>
+                            <textarea id="url-input" placeholder="Enter text or URL here..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Output</label>
+                            <textarea id="url-output" readonly placeholder="Result..."></textarea>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="url-encode" class="btn primary"><i class="fa-solid fa-lock"></i> Encode</button>
+                        <button id="url-decode" class="btn secondary"><i class="fa-solid fa-lock-open"></i> Decode</button>
+                        <button id="url-clear" class="btn danger"><i class="fa-solid fa-trash"></i> Clear</button>
+                    </div>
+                </section>
+
+                <!-- Tool 2: HTML Entity Converter -->
+                <section id="html-tool" class="tool-section">
+                    <h2><i class="fa-solid fa-code"></i> HTML Entity Converter</h2>
+                    <div class="tool-grid">
+                        <div class="input-group">
+                            <label>Raw HTML / Text</label>
+                            <textarea id="html-input" placeholder="<div>Hello</div>"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Escaped Entities</label>
+                            <textarea id="html-output" readonly placeholder="&lt;div&gt;Hello&lt;/div&gt;"></textarea>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="html-encode" class="btn primary"><i class="fa-solid fa-shield-halved"></i> Escape</button>
+                        <button id="html-decode" class="btn secondary"><i class="fa-solid fa-code"></i> Unescape</button>
+                        <button id="html-clear" class="btn danger"><i class="fa-solid fa-trash"></i> Clear</button>
+                    </div>
+                </section>
+
+                <!-- Tool 3: Timestamp Converter -->
+                <section id="time-tool" class="tool-section">
+                    <h2><i class="fa-solid fa-clock"></i> Timestamp Converter</h2>
+                    <div class="tool-grid">
+                        <div class="input-group">
+                            <label>Unix Timestamp (Seconds)</label>
+                            <input type="number" id="unix-input" placeholder="e.g. 1700000000">
+                            <button id="get-current-time" class="btn small-btn">Get Current Time</button>
+                        </div>
+                        <div class="input-group">
+                            <label>Human Readable Date (Local)</label>
+                            <input type="text" id="human-input" readonly>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="time-convert" class="btn primary"><i class="fa-solid fa-rotate"></i> Convert to Date</button>
+                    </div>
+                </section>
+
+                <!-- Tool 4: Regex Tester -->
+                <section id="regex-tool" class="tool-section">
+                    <h2><i class="fa-solid fa-magnifying-glass"></i> Regex Tester</h2>
+                    <div class="input-group">
+                        <label>Regular Expression (Without slashes)</label>
+                        <input type="text" id="regex-pattern" placeholder="e.g. [a-z]+">
+                    </div>
+                    <div class="input-group">
+                        <label>Test String</label>
+                        <textarea id="regex-text" placeholder="Enter text to test against the pattern..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Result Preview</label>
+                        <div id="regex-output" class="regex-preview"></div>
+                    </div>
+                    <div class="button-group">
+                        <button id="regex-test" class="btn primary"><i class="fa-solid fa-play"></i> Test Regex</button>
+                    </div>
+                </section>
+
+                <!-- Tool 5: Lorem Pixel / Placeholder Generator -->
+                <section id="image-tool" class="tool-section">
+                    <h2><i class="fa-solid fa-image"></i> Placeholder Image Generator</h2>
+                    <div class="tool-grid">
+                        <div class="input-group">
+                            <label>Width (px)</label>
+                            <input type="number" id="img-width" value="600">
+                        </div>
+                        <div class="input-group">
+                            <label>Height (px)</label>
+                            <input type="number" id="img-height" value="400">
+                        </div>
+                        <div class="input-group">
+                            <label>Background Color</label>
+                            <input type="color" id="img-color" value="#ff6600">
+                        </div>
+                        <div class="input-group">
+                            <label>Text</label>
+                            <input type="text" id="img-text" placeholder="Placeholder Text">
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="img-generate" class="btn primary"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate</button>
+                    </div>
+                    <div class="image-preview-container">
+                        <canvas id="image-canvas"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
